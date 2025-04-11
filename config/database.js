@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
-
+  console.log("DB_PASSWORD:", env('DATABASE_PASSWORD'));
   const connections = {
     mysql: {
       connection: {
@@ -36,7 +36,7 @@ module.exports = ({ env }) => {
           ca: env('DATABASE_SSL_CA', undefined),
           capath: env('DATABASE_SSL_CAPATH', undefined),
           cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
+          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', false),
         },
         schema: env('DATABASE_SCHEMA', 'public'),
       },
@@ -49,8 +49,10 @@ module.exports = ({ env }) => {
       useNullAsDefault: true,
     },
   };
+  
 
   return {
+    
     connection: {
       client,
       ...connections[client],

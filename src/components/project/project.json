@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_project_projects",
+  "info": {
+    "displayName": "Project"
+  },
+  "options": {},
+  "attributes": {
+    "projectName": {
+      "type": "string"
+    },
+    "techUsed": {
+      "type": "string"
+    },
+    "projectSummary": {
+      "type": "text"
+    }
+  }
+}
